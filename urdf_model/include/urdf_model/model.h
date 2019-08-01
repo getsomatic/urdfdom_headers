@@ -71,6 +71,7 @@ public:
   
   
   const std::string& getName() const {return name_;};
+  const std::string& getObjectType() const {return objectType_;};
   void getLinks(std::vector<LinkSharedPtr >& links) const
   {
     for (std::map<std::string,LinkSharedPtr>::const_iterator link = this->links_.begin();link != this->links_.end(); link++)
@@ -82,6 +83,7 @@ public:
   void clear()
   {
     name_.clear();
+    objectType_.clear();
     this->links_.clear();
     this->joints_.clear();
     this->materials_.clear();
@@ -193,6 +195,9 @@ public:
 
   /// \brief The name of the robot model
   std::string name_;
+
+  /// \brief Type of the object
+  std::string objectType_;
 
   /// \brief The root is always a link (the parent of the tree describing the robot)
   LinkSharedPtr root_link_;
